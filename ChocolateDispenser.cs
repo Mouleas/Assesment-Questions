@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace Assesment
 {
@@ -28,10 +29,10 @@ namespace Assesment
 
         // Trial 1
         public void addChocolates(int n, string color)
-        {
-            Candy obj = new Candy(color);
+        {  
             for (int i = 0; i < n; i++)
             {
+                Candy obj = new Candy(color);
                 box.Add(obj);
             }
             Console.WriteLine("Chocolates Added Successfully...");
@@ -155,7 +156,7 @@ namespace Assesment
         {
             foreach (Candy obj in box)
             {
-                if (n > 0 && obj.Equals(color))
+                if (n > 0 && obj.Color.Equals(color))
                 {
                     obj.Color = final;
                     n--;
@@ -201,7 +202,31 @@ namespace Assesment
         }
 
         //Challenge 2
+        public void dispenseRainbowChocolates(int n)
+        {
+            int rainbow = 0;
+            Dictionary<string, int> map = new Dictionary<string, int>();
 
+            ArrayList colors = new ArrayList() { "green", "silver", "blue", "crimson", "purple", "red", "pink" };
+
+
+            foreach (string s in colors)
+            {
+                map[s] = 0;
+            }
+            
+            foreach (Candy obj in box)
+            {
+                map[obj.Color]++;
+            }
+
+            foreach (var x in map)
+            {
+                rainbow += (x.Value / 2);
+            }
+
+            Console.WriteLine("The Amount of rainbow chocolates we get: "+ rainbow);
+        }
 
         static void Main(string[] args)
         {
@@ -209,7 +234,6 @@ namespace Assesment
 
             // Trial choices
             ArrayList choice = new ArrayList();
-            choice.Add("-1.End");
             choice.Add("0.Print dispenser");
             choice.Add("1.Add N chocolates");
             choice.Add("2.Remove N chocolates");
@@ -220,6 +244,7 @@ namespace Assesment
             choice.Add("7.Change N chocolate color");
             choice.Add("8.Change all chocolate to other color");
             choice.Add("9.Remove chocolate from top");
+            choice.Add("10.Count Rainbow color chocolates");
 
             while (true)
             {
@@ -230,10 +255,7 @@ namespace Assesment
                 Console.WriteLine();
                 Console.Write("Enter your Choice: ");
                 int trial = Convert.ToInt32(Console.ReadLine());
-                if (trial == -1)
-                {
-                    break;
-                }
+
                 switch (trial)
                 {
                     case 0:
@@ -286,6 +308,7 @@ namespace Assesment
                         break;
 
                     case 7:
+                        Console.WriteLine("Enter number of chocolates: ");
                         n = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("Enter the color you need to change: ");
                         obj.printColors();
@@ -293,6 +316,7 @@ namespace Assesment
                         Console.WriteLine("Enter the final color: ");
                         string finalColor = Console.ReadLine();
                         obj.changeChocolateColor(n, color, finalColor);
+                        Console.WriteLine();
                         break;
 
                     case 8:
@@ -312,6 +336,16 @@ namespace Assesment
                         Console.WriteLine(); 
                         break;
 
+                    case 10:
+                        Console.WriteLine("Chocolates to be dispensed: ");
+                        n = Convert.ToInt32(Console.ReadLine());
+                        obj.dispenseRainbowChocolates(n);
+                        Console.WriteLine();
+                        break;
+
+                    default:
+                        return;
+
                 }
 
             }
@@ -324,14 +358,19 @@ namespace Assesment
             {
                 Console.Write(i + ", ");
             }
+            Console.WriteLine();
         }
         public void printDispenser()
         {
+
+            Console.WriteLine("........CHOCOLATE DISPENSER.......");
+            Console.WriteLine();
             Console.WriteLine("Count: " + box.Count);
             for (int i = box.Count-1; i >= 0; i--)
             {
                 Console.WriteLine(((Candy)box[i]).Color);
             }
+            Console.WriteLine();
         }
     }
 }
