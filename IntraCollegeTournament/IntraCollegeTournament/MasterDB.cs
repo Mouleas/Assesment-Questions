@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using ConsoleTables;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,54 +9,58 @@ using System.Threading.Tasks;
 namespace IntraCollegeTournament
 {
     public class MasterDB : Connection
-    {
+    {   
         public void ShowSports()
         {
+            ConsoleTable table = new ConsoleTable("Sports Name", "Sports ID", "Entry fee");
             connection.Open();
             SqlCommand cmd = connection.CreateCommand();
             cmd.CommandText = "SELECT * FROM MASTERSPORTS";
             SqlDataReader reader = cmd.ExecuteReader();
+            
+            Console.WriteLine(":::::::::::::::::::::::::::::::\n");
             Console.WriteLine("Available Sports in MASTER-DB:");
-            int sportId = 0;
             while (reader.Read())
             {
-                Console.WriteLine($"{++sportId}: {reader[0]}");
+                table.AddRow(("" + reader[0]).Trim(), reader[1], reader[2]);
             }
+            table.Write();
+            Console.WriteLine(":::::::::::::::::::::::::::::::");
             reader.Close();
             connection.Close();
 
         }
 
-        public void AddSports(string sport)
+        public void AddSports(string sport, int ID, int fee)
         {
             connection.Open();
             SqlCommand cmd = connection.CreateCommand();
 
-            cmd.CommandText = $"INSERT INTO MASTERSPORTS VALUES('{sport}')";
+            cmd.CommandText = $"INSERT INTO MASTERSPORTS VALUES('{sport}',{ID},{fee})";
             try
             {
                 cmd.ExecuteReader();
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"{sport} is already present in the table...");
+                Console.WriteLine($"{ID} or {sport} is already present in the table...");
             }
             Console.WriteLine();
             connection.Close();
         }
 
-        public void RemoveSports(string sport)
+        public void RemoveSports(int ID)
         {
             connection.Open();
             SqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = $"DELETE FROM MASTERSPORTS WHERE SPORTS='{sport}'";
+            cmd.CommandText = $"DELETE FROM MASTERSPORTS WHERE SPORT_ID={ID}";
             try
             {
                 cmd.ExecuteReader();
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"{sport} is not present in the table...");
+                Console.WriteLine($"{ID} is not present in the table...");
             }
             Console.WriteLine();
             connection.Close();

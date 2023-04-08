@@ -2,23 +2,37 @@
 
 namespace IntraCollegeTournament
 {
-    internal class Program : Connection
+    public class Program : Connection
     {
         static void Main(string[] args)
         {
-            Program programObj = new Program();
             Tournament tournamentObj = new Tournament();
             MasterDB masterObj = new MasterDB();
+            Players playerObj = new Players();
+            ScoreBoard scoreBoardObj = new ScoreBoard();
+
             
             bool flag = true;
             while (flag)
             {
+                Console.WriteLine("Director handling: ");
                 Console.WriteLine("1.ADD SPORTS TO MASTER DB");
-                Console.WriteLine("2.ADD TOURNAMENT");
-                Console.WriteLine("3.DELETE SPORT");
-                Console.WriteLine("4.REMOVE TOUNAMENT");
-                Console.WriteLine("5.SHOW SPORTS");
-                Console.WriteLine("6.SHOW TOURNAMENT");
+                Console.WriteLine("2.REMOVE SPORT");
+                Console.WriteLine("3.SHOW SPORTS\n");
+
+                Console.WriteLine("Tournament handling: ");
+                Console.WriteLine("4.ADD TOURNAMENT");
+                Console.WriteLine("5.REMOVE TOUNAMENT");
+                Console.WriteLine("6.SHOW TOURNAMENT\n");
+
+                Console.WriteLine("Player handling: ");
+                Console.WriteLine("7.SHOW PLAYERS");
+                Console.WriteLine("8.REMOVE PLAYER");
+                Console.WriteLine("9.ADD PLAYER\n");
+
+                Console.WriteLine("Score Board: ");
+                Console.WriteLine("10.UPDATE BOARD");
+                Console.WriteLine("11.END TOURNAMENT\n");
 
                 Console.WriteLine("Enter your choice: ");
                 int choice = int.Parse(Console.ReadLine());
@@ -26,44 +40,99 @@ namespace IntraCollegeTournament
                 switch (choice)
                 {
                     case 1:
-                        Console.WriteLine("Enter sports name: ");
+                        Console.WriteLine("Enter sport name: ");
                         string sport = Console.ReadLine();
-                        masterObj.AddSports(sport.ToUpper());
+                        Console.WriteLine("Enter sport ID: ");
+                        int ID = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter fee: ");
+                        int fee = int.Parse(Console.ReadLine());
+                        masterObj.AddSports(sport.ToUpper(),ID,fee);
                         Console.WriteLine();
+                        Console.WriteLine("PRESS ENTER TO CONTINUE...");
+                        Console.ReadKey();
                         break;
 
                     case 2:
                         masterObj.ShowSports();
-                        Console.WriteLine("Enter tournament name: ");
-                        sport = Console.ReadLine();
-                        tournamentObj.AddTournament(sport.ToUpper());
+                        Console.WriteLine("Enter SPORT_ID: ");
+                        ID = int.Parse(Console.ReadLine());
+                        masterObj.RemoveSports(ID);
                         Console.WriteLine();
+                        Console.WriteLine("PRESS ENTER TO CONTINUE...");
+                        Console.ReadKey();
                         break;
 
                     case 3:
                         masterObj.ShowSports();
-                        Console.WriteLine("Enter sports name: ");
-                        sport = Console.ReadLine();
-                        masterObj.RemoveSports(sport.ToUpper());
                         Console.WriteLine();
+                        Console.WriteLine("PRESS ENTER TO CONTINUE...");
+                        Console.ReadKey();
                         break;
 
                     case 4:
-                        tournamentObj.ShowTournament();
-                        Console.WriteLine("Enter tournament ID: ");
-                        int ID = int.Parse(Console.ReadLine());
-                        tournamentObj.RemoveTournament(ID);
+                        masterObj.ShowSports();
+                        Console.WriteLine("Enter SPORT_ID: ");
+                        ID = int.Parse(Console.ReadLine());
+                        tournamentObj.AddTournament(ID);
                         Console.WriteLine();
+                        Console.WriteLine("PRESS ENTER TO CONTINUE...");
+                        Console.ReadKey();
                         break;
 
                     case 5:
-                        masterObj.ShowSports();
+                        tournamentObj.ShowTournament();
+                        Console.WriteLine("Enter tournament ID: ");
+                        ID = int.Parse(Console.ReadLine());
+                        tournamentObj.RemoveTournament(ID);
                         Console.WriteLine();
+                        Console.WriteLine("PRESS ENTER TO CONTINUE...");
+                        Console.ReadKey();
                         break;
 
                     case 6:
                         tournamentObj.ShowTournament();
                         Console.WriteLine();
+                        Console.WriteLine("PRESS ENTER TO CONTINUE...");
+                        Console.ReadKey();
+                        break;
+
+                    case 7:
+                        tournamentObj.ShowTournament();
+                        Console.WriteLine("Enter tornament ID: ");
+                        ID = int.Parse(Console.ReadLine());
+                        playerObj.ShowPlayers(ID);
+                        Console.WriteLine("PRESS ENTER TO CONTINUE...");
+                        Console.ReadKey();
+                        break;
+
+                    case 8:
+                        Console.WriteLine("Enter player ID: ");
+                        ID = int.Parse(Console.ReadLine());
+                        playerObj.RemovePlayer(ID);
+                        Console.WriteLine("PRESS ENTER TO CONTINUE...");
+                        Console.ReadKey();
+                        break;
+
+                    case 9:
+                        playerObj.AddPlayerOrTeam();
+                        Console.WriteLine("PRESS ENTER TO CONTINUE...");
+                        Console.ReadKey();
+                        break;
+
+                    case 10:
+                        tournamentObj.ShowTournament();
+                        Console.WriteLine("Enter tournament ID: ");
+                        ID = int.Parse(Console.ReadLine());
+                        scoreBoardObj.EditScoreBoard(ID);
+                        Console.WriteLine("PRESS ENTER TO CONTINUE...");
+                        Console.ReadKey();
+                        break;
+
+                    case 11:
+                        tournamentObj.ShowTournament();
+                        Console.WriteLine("Enter tournament ID: ");
+                        ID = int.Parse(Console.ReadLine());
+                        tournamentObj.EndTournament(ID);
                         break;
 
                     default:
