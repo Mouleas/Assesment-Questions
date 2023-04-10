@@ -14,12 +14,13 @@ namespace IntraCollegeTournament
 
             ConsoleTable table = new ConsoleTable("Director Handling", "Tournament Handling", "Player Handling", "ScoreBoard");
 
+            table.AddRow("1.ADD SPORTS TO MASTER DB", "4.ADD TOURNAMENT", "7.SHOW PLAYERS", "10.UPDATE BOARD");
+            table.AddRow("2.REMOVE SPORT", "5.REMOVE TOUNAMENT", "8.REMOVE PLAYER", "11.END TOURNAMENT");
+            table.AddRow("3.SHOW SPORTS", "6.SHOW TOURNAMENT", "9.ADD PLAYER", "");
+
             bool flag = true;
             while (flag)
             {
-                table.AddRow("1.ADD SPORTS TO MASTER DB", "4.ADD TOURNAMENT", "7.SHOW PLAYERS", "10.UPDATE BOARD");
-                table.AddRow("2.REMOVE SPORT", "5.REMOVE TOUNAMENT", "8.REMOVE PLAYER", "11.END TOURNAMENT");
-                table.AddRow("3.SHOW SPORTS", "6.SHOW TOURNAMENT", "9.ADD PLAYER", "");
 
                 table.Write();
                 
