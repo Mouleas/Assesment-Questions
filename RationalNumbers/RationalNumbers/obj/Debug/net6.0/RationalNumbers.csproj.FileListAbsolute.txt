@@ -13,3 +13,18 @@ C:\Users\HP\Desktop\ASP .Net\RationalNumbers\RationalNumbers\obj\Debug\net6.0\re
 C:\Users\HP\Desktop\ASP .Net\RationalNumbers\RationalNumbers\obj\Debug\net6.0\RationalNumbers.pdb
 C:\Users\HP\Desktop\ASP .Net\RationalNumbers\RationalNumbers\obj\Debug\net6.0\RationalNumbers.genruntimeconfig.cache
 C:\Users\HP\Desktop\ASP .Net\RationalNumbers\RationalNumbers\obj\Debug\net6.0\ref\RationalNumbers.dll
+C:\Users\HP\Desktop\Git\RationalNumbers\RationalNumbers\bin\Debug\net6.0\RationalNumbers.exe
+C:\Users\HP\Desktop\Git\RationalNumbers\RationalNumbers\bin\Debug\net6.0\RationalNumbers.deps.json
+C:\Users\HP\Desktop\Git\RationalNumbers\RationalNumbers\bin\Debug\net6.0\RationalNumbers.runtimeconfig.json
+C:\Users\HP\Desktop\Git\RationalNumbers\RationalNumbers\bin\Debug\net6.0\RationalNumbers.dll
+C:\Users\HP\Desktop\Git\RationalNumbers\RationalNumbers\bin\Debug\net6.0\RationalNumbers.pdb
+C:\Users\HP\Desktop\Git\RationalNumbers\RationalNumbers\obj\Debug\net6.0\RationalNumbers.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\Git\RationalNumbers\RationalNumbers\obj\Debug\net6.0\RationalNumbers.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Desktop\Git\RationalNumbers\RationalNumbers\obj\Debug\net6.0\RationalNumbers.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\Git\RationalNumbers\RationalNumbers\obj\Debug\net6.0\RationalNumbers.AssemblyInfo.cs
+C:\Users\HP\Desktop\Git\RationalNumbers\RationalNumbers\obj\Debug\net6.0\RationalNumbers.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\Git\RationalNumbers\RationalNumbers\obj\Debug\net6.0\RationalNumbers.dll
+C:\Users\HP\Desktop\Git\RationalNumbers\RationalNumbers\obj\Debug\net6.0\refint\RationalNumbers.dll
+C:\Users\HP\Desktop\Git\RationalNumbers\RationalNumbers\obj\Debug\net6.0\RationalNumbers.pdb
+C:\Users\HP\Desktop\Git\RationalNumbers\RationalNumbers\obj\Debug\net6.0\RationalNumbers.genruntimeconfig.cache
+C:\Users\HP\Desktop\Git\RationalNumbers\RationalNumbers\obj\Debug\net6.0\ref\RationalNumbers.dll

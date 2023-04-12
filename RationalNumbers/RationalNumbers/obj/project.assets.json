@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HP\\Desktop\\ASP .Net\\RationalNumbers\\RationalNumbers\\RationalNumbers.csproj",
+      "projectUniqueName": "C:\\Users\\HP\\Desktop\\Git\\RationalNumbers\\RationalNumbers\\RationalNumbers.csproj",
       "projectName": "RationalNumbers",
-      "projectPath": "C:\\Users\\HP\\Desktop\\ASP .Net\\RationalNumbers\\RationalNumbers\\RationalNumbers.csproj",
+      "projectPath": "C:\\Users\\HP\\Desktop\\Git\\RationalNumbers\\RationalNumbers\\RationalNumbers.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HP\\Desktop\\ASP .Net\\RationalNumbers\\RationalNumbers\\obj\\",
+      "outputPath": "C:\\Users\\HP\\Desktop\\Git\\RationalNumbers\\RationalNumbers\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
