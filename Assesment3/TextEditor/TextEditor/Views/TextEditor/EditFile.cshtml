@@ -1,0 +1,13 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<form asp-action="EditFile">
+    <input placeholder="Enter file name" name="filename" value="@(ViewData["filename"])" readonly/><br /><br />
+    <textarea name="text-area" style="width:1000px; height:300px">@(ViewData["content"])</textarea><br />
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-action="Index" class="btn btn-danger">Cancel</a>
+</form>

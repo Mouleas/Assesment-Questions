@@ -111,7 +111,7 @@
             RationalNumber r2 = new RationalNumber(10, 8);
             RationalNumber r3 = new RationalNumber(2, -1);
 
-            Console.WriteLine((r1 - -r2));
+            Console.WriteLine();
         }
     }
 }
