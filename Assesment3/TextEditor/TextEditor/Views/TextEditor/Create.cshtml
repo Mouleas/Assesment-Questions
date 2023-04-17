@@ -19,14 +19,29 @@
     <a asp-action="Index" class="btn btn-danger">Cancel</a>
 </form>
 
-<a href="" download="output.txt" id="dbtn" onclick="Download()">Download</a>
+<br />
+
+<button onclick="Download()" class="btn btn-secondary">Download</button>
 
 
 <script>
-    var filename = document.getElementById("filename").value;
-   function Download() {
-        var data = document.getElementById("text-area").value;
-        console.log(data);
-        this.href = "data:text/plain;charset=UTF-8," + encodeURIComponent(data);
-   }
+    function Download() {
+        var filename = document.getElementById("filename").value;
+        if (filename === "") {
+            alert("Enter file name");
+        }
+        else {
+            var text = document.getElementById("text-area").value;
+            text = text.replace(/\n/g, "\r\n");
+            var blob = new Blob([text], { type: "text/plain" });
+            var anchor = document.createElement("a");
+            anchor.download = filename + ".txt";
+            anchor.href = window.URL.createObjectURL(blob);
+            anchor.target = "_blank";
+            anchor.style.display = "none";
+            document.body.appendChild(anchor);
+            anchor.click();
+            document.body.removeChild(anchor);
+        }
+    }
 </script>

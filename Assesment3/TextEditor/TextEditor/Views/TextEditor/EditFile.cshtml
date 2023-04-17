@@ -6,8 +6,32 @@
 
 
 <form asp-action="EditFile">
-    <input placeholder="Enter file name" name="filename" value="@(ViewData["filename"])" readonly/><br /><br />
-    <textarea name="text-area" style="width:1000px; height:300px">@(ViewData["content"])</textarea><br />
+    <input placeholder="Enter file name" name="filename" value="@(ViewData["filename"]).txt" disabled id="filename"/><br /><br />
+    <textarea name="text-area" style="width:1000px; height:300px" id="text-area">@(ViewData["content"])</textarea><br />
     <button type="submit" class="btn btn-success">Save</button>
     <a asp-action="Index" class="btn btn-danger">Cancel</a>
 </form>
+
+<br />
+
+<button onclick="Download()" class="btn btn-secondary">Download</button>
+
+<script>
+    function Download() {
+        document.getElementById("filename").disabled = false;
+        var filename = document.getElementById("filename").value;
+        document.getElementById("filename").disabled = true;
+        console.log(filename);
+        var text = document.getElementById("text-area").value;
+        text = text.replace(/\n/g, "\r\n");
+        var blob = new Blob([text], { type: "text/plain" });
+        var anchor = document.createElement("a");
+        anchor.download = filename;
+        anchor.href = window.URL.createObjectURL(blob);
+        anchor.target = "_blank";
+        anchor.style.display = "none";
+        document.body.appendChild(anchor);
+        anchor.click();
+        document.body.removeChild(anchor);
+    }
+</script>
